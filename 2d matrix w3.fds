@@ -1,0 +1,11 @@
+import numpy as np
+
+#creating a 2D matrix
+matrix=np.array([[1,2,3],[4,5,6]])
+
+#Display the matrix
+print("Matrix:")
+print(matrix)
+
+#Accessing an element
+print("Element at[1][2]:",matrix[1][2])
