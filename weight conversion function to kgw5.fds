@@ -1,0 +1,23 @@
+import pandas as pd
+import re
+
+data = {
+    'Sample ID': ['A1', 'A2', 'A3', 'A4', 'A5'],
+    'Weight': ['70 kg', '154 lbs', '68 KG', '160 pound', '72 Kilograms']
+}
+
+df = pd.DataFrame(data)
+print("Original Data")
+print(df, '\n')
+
+def convert_to_kg(weight):
+    weight = weight.lower()
+    value = float(re.findall(r'\d+', weight)[0])
+    if 'lb' in weight or 'pound' in weight:
+        return round(value * 0.453592, 2)
+    else:
+        return value
+
+df['Weight (kg)'] = df['Weight'].apply(convert_to_kg)
+print("Converted Data (All in kg)")
+print(df)
