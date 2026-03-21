@@ -1,0 +1,8 @@
+import pandas as pd
+data = {
+    'product ID':[101,102,103,104,105],
+    'Product Name':['apple','Banana','ORANGE','baNana','Apple']
+}
+df=pd.DataFrame(data)
+df['Product Name']=df['Product Name'].str.lower()
+print(df)
