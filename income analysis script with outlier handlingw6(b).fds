@@ -1,0 +1,17 @@
+# Calculate Mean and Standard Deviation including Outliers
+mean_with_outlier = df['Income'].mean()
+std_with_outlier = df['Income'].std()
+
+# Filter out outliers and calculate Mean and Standard Deviation
+df_clean = df[df['Outlier'] == 'Normal']
+mean_without_outlier = df_clean['Income'].mean()
+std_without_outlier = df_clean['Income'].std()
+
+# Display results
+print("Income with Outlier")
+print(f"Mean: ${mean_with_outlier:,.2f}")
+print(f"SD: ${std_with_outlier:,.2f}")
+
+print("Income without Outlier")
+print(f"Mean: ${mean_without_outlier:,.2f}")6
+print(f"SD: ${std_without_outlier:,.2f}")
