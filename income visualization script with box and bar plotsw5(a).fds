@@ -1,0 +1,24 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = {
+    'person ID': range(1, 11),
+    'Income': [80000, 95000, 115000, 75000, 110000, 85000, 100000, 199000, 105000, 90000]
+}
+
+df = pd.DataFrame(data)
+
+# Box plot
+plt.figure(figsize=(8, 4))
+plt.boxplot(df['Income'], vert=False, showfliers=True)
+plt.title('Box plot of Income')
+plt.xlabel('Income ($)')
+plt.show()
+
+# Bar plot
+plt.figure(figsize=(8, 4))
+plt.bar(df['person ID'], df['Income'])
+plt.title('Bar plot of Incomes')
+plt.xlabel('sample ID')
+plt.ylabel('Income ($)')
+plt.show()
