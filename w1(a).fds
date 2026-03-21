@@ -1,0 +1,21 @@
+import pandas as pd
+import numpy as np
+#load the dataset (csv file)
+#replace 'dataset.csv' with your
+data = pd.read_csv('sample_data/california_housing_train.csv') # Changed 'dataset.csv' to 'sample_data/california_housing_train.csv'
+print("First 5 rows of the dataet:")
+print(data.head())
+print("\nLast 5 rows of the dataset")
+print(data.tail())
+print("\nDtaset Information:")
+print(data.info())
+print("\nSatistical Summary:")
+print(data.describe())
+print("\nMissing Values in Each Column:" )
+print(data.isnull().sum())
+print("\nColumn Names:")
+print(data.columns)
+print("\nDataset Shape (Rows,Columns):")
+print(data.shape)
+print("\nMean of numerical columns:")
+print(np.mean(data.select_dtypes(include=np.number)))
