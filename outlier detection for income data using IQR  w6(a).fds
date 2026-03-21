@@ -1,0 +1,27 @@
+# statistical methods
+import pandas as pd
+
+# Sample data
+data = {
+    'Person ID': range(1, 11),
+    'Income': [80000, 95000, 115000, 75000, 110000,
+               85000, 100000, 199000, 105000, 90000]
+}
+
+df = pd.DataFrame(data)
+
+# Calculate Q1 and Q3
+Q1 = df['Income'].quantile(0.25)
+Q3 = df['Income'].quantile(0.75)
+IQR = Q3 - Q1
+
+# Calculate bounds
+lower_bound = Q1 - 1.5 * IQR
+upper_bound = Q3 + 1.5 * IQR
+
+# Identify outliers
+df['Outlier'] = df['Income'].apply(
+    lambda x: 'Outlier' if x > upper_bound else 'Normal'
+)
+
+print(df)
